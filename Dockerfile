@@ -58,6 +58,7 @@ RUN apt-get update -qq \
            git-annex-remote-rclone \
            octave \
            netbase \
+	   mricron \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
