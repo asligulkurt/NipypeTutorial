@@ -144,12 +144,12 @@ USER neuro
 # # User-defined BASH instruction
 # RUN bash -c "curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz"
 
-COPY [".", "/home/neuro/nipype_tutorial"]
+COPY [".", "/home/neuro/NipypeTutorial"]
 
 USER root
 
 # User-defined instruction
-RUN chown -R neuro /home/neuro/nipype_tutorial
+RUN chown -R neuro /home/neuro/NipypeTutorial
 
 USER neuro
 
@@ -250,7 +250,7 @@ RUN echo '{ \
     \n      "copy", \
     \n      [ \
     \n        ".", \
-    \n        "/home/neuro/nipype_tutorial" \
+    \n        "/home/neuro/NipypeTutorial" \
     \n      ] \
     \n    ], \
     \n    [ \
@@ -259,7 +259,7 @@ RUN echo '{ \
     \n    ], \
     \n    [ \
     \n      "run", \
-    \n      "chown -R neuro /home/neuro/nipype_tutorial" \
+    \n      "chown -R neuro /home/neuro/NipypeTutorial" \
     \n    ], \
     \n    [ \
     \n      "user", \
