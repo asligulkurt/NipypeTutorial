@@ -129,6 +129,9 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
            seaborn \
            nbformat \
            nb_conda \
+	   ipympl \
+	   widgetsnbextension \
+	   nodejs \
     && sync && conda clean -tipsy && sync \
     && bash -c "source activate neuro \
     &&   pip install --no-cache-dir  \
@@ -155,11 +158,7 @@ RUN mkdir /output && chmod 777 /output && chmod a+s /output
 
 USER neuro
 
-RUN printf "[user]\n\tname = miykael\n\temail = michaelnotter@hotmail.com\n" > ~/.gitconfig
-
-RUN bash -c 'source activate neuro && cd /data && datalad install -r ///workshops/nih-2017/ds000114 && cd ds000114 && datalad update -r && datalad get -r sub-01/ses-test/anat sub-01/ses-test/func/*fingerfootlips*'
-
-RUN curl -L https://files.osf.io/v1/resources/fvuh8/providers/osfstorage/580705089ad5a101f17944a9 -o /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && tar xf /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz -C /data/ds000114/derivatives/fmriprep/. && rm /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c.tar.gz && find /data/ds000114/derivatives/fmriprep/mni_icbm152_nlin_asym_09c -type f -not -name ?mm_T1.nii.gz -not -name ?mm_brainmask.nii.gz -not -name ?mm_tpm*.nii.gz -delete
+RUN printf "[user]\n\tname = arash\n\temail = arash.ashrafnejad@gmail.com\n" > ~/.gitconfig
 
 COPY [".", "/home/neuro/nipype_tutorial"]
 
@@ -175,7 +174,7 @@ RUN mkdir -p ~/.jupyter && echo c.NotebookApp.ip = \"0.0.0.0\" > ~/.jupyter/jupy
 
 WORKDIR /home/neuro/nipype_tutorial
 
-CMD ["jupyter-notebook"]
+CMD ["jupyter-lab"]
 
 RUN echo '{ \
     \n  "pkg_manager": "apt", \
@@ -324,7 +323,7 @@ RUN echo '{ \
     \n    [ \
     \n      "cmd", \
     \n      [ \
-    \n        "jupyter-notebook" \
+    \n        "jupyter-lab" \
     \n      ] \
     \n    ] \
     \n  ] \
