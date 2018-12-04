@@ -129,9 +129,6 @@ RUN export PATH="/opt/miniconda-latest/bin:$PATH" \
            seaborn \
            nbformat \
            nb_conda \
-	   ipympl \
-	   widgetsnbextension \
-	   nodejs \
     && sync && conda clean -tipsy && sync \
     && bash -c "source activate neuro \
     &&   pip install --no-cache-dir  \
