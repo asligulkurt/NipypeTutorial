@@ -1,4 +1,4 @@
-# Data collection
+# Dataset
 The fMRI data is collected using a 3 Tesla MRI in Sabuncu Brain Research Center.
 ## Experiment 1
 In the first block-designed experiment, two flickering left and right wedges were presented with a fixation task.
